@@ -1,0 +1,16 @@
+Step 3:
+
+@route('<filename:re:/.*\.(js|css|gif)>')
+def static_assets(filename):
+    filename = filename[1:] # strip off leading /
+     
+    with open(filename, "rb") as f:
+        return f.read()
+
+
+Step 4:
+
+@route('<filename:re:/.*\.(js|css|gif)>')
+def static_assets(filename):
+    return static_file(filename[1:], root=".")
+

@@ -1,0 +1,68 @@
+Step 2:
+
+show_columns = (
+        'JOB_NAME', 'AUTHORIZATION_NAME', 'JOB_TYPE', 'FUNCTION_TYPE',
+        'FUNCTION', 'JOB_STATUS', 'ELAPSED_INTERACTION_COUNT',
+        'ELAPSED_TOTAL_RESPONSE_TIME', 'ELAPSED_TOTAL_DISK_IO_COUNT',
+        'ELAPSED_ASYNC_DISK_IO_COUNT', 'ELAPSED_SYNC_DISK_IO_COUNT',
+        'ELAPSED_CPU_PERCENTAGE', 'ELAPSED_CPU_TIME',
+        'ELAPSED_PAGE_FAULT_COUNT' )
+
+
+Step 3:
+
+columns_string = ",".join(show_columns)
+
+
+Step 4:
+
+query = "select %s from table(qsys2.active_job_info(RESET_STATISTICS => ?)) x where job_type <> 'SBS'" % columns_string
+
+
+Step 6:
+
+from string import capwords
+
+
+Step 7:
+
+headers = [capwords(column.replace('_', ' ')) for column in show_columns]
+
+
+Step 9:
+
+<div>Elapsed time: {{elapsed_time}}
+
+
+Step 10:
+
+elapsed_time = 0
+
+
+Step 11:
+
+return template('task6', rows=cur, headers=headers, elapsed_time=elapsed_time)
+
+
+Step 13:
+
+hide_columns = ( 'ELAPSED_TIME', )
+
+
+Step 14:
+
+all_columns = show_columns + hide_columns
+
+
+Step 16:
+
+row_data = []
+for row in cur:
+    row_data.append(row[0 : len(show_columns)])
+    
+
+Step 18:
+
+elapsed_time = row[-1]
+
+

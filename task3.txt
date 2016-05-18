@@ -1,0 +1,13 @@
+Step 2:
+
+wrkactjob_dict = itool.dict_out('wrkactjob')
+
+
+Step 3:
+
+data = wrkactjob_dict['wrkactjob']
+
+
+Step 12:
+
+return template('task3', data)

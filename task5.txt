@@ -1,0 +1,35 @@
+Step 2:
+
+<form action='/' method='POST'>
+<button type='submit' name='reset' value='true'>Reset Statistics</button>
+</form>
+
+
+Step 3:
+
+window.location = window.location;
+
+
+Step 4:
+
+@route('/', method=('GET', 'POST'))
+
+
+Step 7:
+
+from bottle import route, run, request, template
+
+
+Step 8:
+
+reset_parm = 'YES' if request.forms.get('reset') == 'true' else 'NO'
+
+
+Step 9:
+
+select subsystem, job_name, function_type, function, job_type, elapsed_time from table(qsys2.active_job_info(RESET_STATISTICS => ?)) x where job_type <> 'SBS'
+
+
+Step 10:
+
+cur.execute(query, (reset_parm, ))

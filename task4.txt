@@ -1,0 +1,26 @@
+Step 2:
+
+select subsystem, job_name, function_type, function, job_type, elapsed_time from table(qsys2.active_job_info()) x where job_type <> 'SBS'
+
+
+Step 4:
+
+headers = []
+for descr in cur.description:
+    headers.append(descr[0])
+
+
+Step 5:
+
+return template('task4', rows=cur, headers=headers)
+
+
+Step 6:
+
+% include('row', values=headers, header=True)
+
+
+Step 9:
+
+headers = [descr[0] for descr in cur.description]
+
